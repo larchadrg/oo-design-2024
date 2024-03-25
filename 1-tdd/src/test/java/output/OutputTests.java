@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.easymock.EasyMock.*;
 
 public class OutputTests {
 
@@ -19,13 +20,22 @@ public class OutputTests {
     }
 
     @Test
-    public void testPrintFizzBuzzTerminal() {
+    public void testPrintFizzBuzzEasyMock() {
         List<Integer> numbers = List.of(1, 2, 3, 4, 5);
-        String expected = "1,2,Fizz,4,Buzz";
-        Terminal mock = new Terminal();
+        // Crear objetos
+        Output mock = mock(Output.class);
+
+        // Especificar comportamiento esperado
+        mock.print("1,2,Fizz,4,Buzz");
+        replay(mock);
+
         PrintFizzBuzz printer = new PrintFizzBuzz(mock);
         printer.printFizzBuzz(numbers);
-        //assertThat(mock.isInvoked()).isTrue();
+
+        // Verificar que se ejercita el comportamiento esperado
+        verify(mock);
     }
+
+
 
 }
