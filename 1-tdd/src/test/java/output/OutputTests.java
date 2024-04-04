@@ -16,7 +16,8 @@ public class OutputTests {
         MockOutput mock = new MockOutput();
         PrintFizzBuzz printer = new PrintFizzBuzz(mock);
         printer.printFizzBuzz(numbers);
-        assertThat(mock.isInvoked()).isTrue();
+        assertThat(mock.printIsInvoked()).isTrue();
+        assertThat(mock.getPrintInput()).isEqualTo("1,2,Fizz,4,Buzz");
     }
 
     @Test

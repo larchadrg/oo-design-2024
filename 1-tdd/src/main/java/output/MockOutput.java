@@ -3,15 +3,18 @@ package output;
 public class MockOutput implements Output {
 
     private boolean invoked = false;
+    private String printInput;
     @Override
     public void print(String toPrint) {
         invoked = true;
-        if (!toPrint.equals("1,2,Fizz,4,Buzz")) {
-            throw new Error("Invalid mock call");
-        }
+        printInput = toPrint;
     }
 
-    public boolean isInvoked() {
+    public boolean printIsInvoked() {
         return invoked;
+    }
+
+    public String getPrintInput() {
+        return printInput;
     }
 }
