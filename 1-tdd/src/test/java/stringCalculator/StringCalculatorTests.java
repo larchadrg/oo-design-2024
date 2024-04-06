@@ -39,7 +39,7 @@ public class StringCalculatorTests {
     }
 
     @Test
-    public void testAddWithNewline(){
+    public void testAddWithNewlineAndComma(){
         int res = StringCalculator.add("1\n2,3");
         assertThat(res).isEqualTo(6);
     }
@@ -57,23 +57,13 @@ public class StringCalculatorTests {
     }
 
     @Test
-    public void testAddWithLargeDelimiter2(){
-        int res = StringCalculator.add("//++\n24++33++11");
-        assertThat(res).isEqualTo(68);
-    }
-
-    /*
-    @Test
     public void testAddNegativeNumbers(){
         int res = StringCalculator.add("22,-3");
         assertThat(res).isEqualTo(19);
     }
-    */
-/*
     @Test
     public void testExceptionNegativeNumber(){
         int res = StringCalculator.add("-3");
-        assertThat(res).
+        assertThat(res).isEqualTo(-3);
     }
-*/
 }

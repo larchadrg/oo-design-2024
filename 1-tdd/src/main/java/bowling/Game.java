@@ -13,6 +13,9 @@ public class Game{
     }
 
     void roll(int pins) {
+        if ( pins < 0 || pins > 10) {
+            throw new IllegalArgumentException("Invalid number of pins");
+        }
         rolls[currentRoll] = pins;
         currentRoll++;
     }
@@ -29,6 +32,8 @@ public class Game{
             else if (isSpare(frameIndex)) {
                 totalScore += 10 + spareBonus(frameIndex);
                 frameIndex += 2;
+            } else if (sumOfPinsInFrame(frameIndex) > 10){
+                throw new IllegalArgumentException("Invalid number of pins in frame");
             } else {
                 totalScore += sumOfPinsInFrame(frameIndex);
                 frameIndex += 2;

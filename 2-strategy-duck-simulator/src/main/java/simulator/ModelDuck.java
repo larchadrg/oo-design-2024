@@ -3,7 +3,7 @@ package simulator;
 public class ModelDuck extends Duck {
 	public ModelDuck() {
 		flyBehavior = new FlyNoWay();
-		quackBehavior = new Quack();
+		quackBehavior = new QuackNoWay();
 	}
 
 	public void display() {

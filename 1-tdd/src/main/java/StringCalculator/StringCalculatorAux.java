@@ -73,9 +73,15 @@ public class StringCalculatorAux {
         return numbers;
     }
 
-    public static ArrayList<Integer> getNegativeNumbers(ArrayList<Integer> numbers){
+    static ArrayList<Integer> getNegativeNumbers(ArrayList<Integer> numbers){
         ArrayList<Integer> negNumbers = new ArrayList<>();
         for(int n: numbers) if(n < 0) negNumbers.add(n);
         return negNumbers;
+    }
+
+    static int addNumberList(ArrayList<Integer> numbers) {
+        int total = 0;
+        for (Integer number : numbers) total += number;
+        return total;
     }
 }

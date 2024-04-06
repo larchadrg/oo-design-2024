@@ -1,12 +1,22 @@
 package simulator;
 
+import output.Output;
+import output.Terminal;
+
 public abstract class Duck {
 
 	FlyBehavior flyBehavior;
 	QuackBehavior quackBehavior;
+	Output output;
 
-	public Duck() {
+	public Duck(Output output) {
+		this.output = output;
 	}
+
+	public Duck(){
+		output = new Terminal();
+	}
+
 
 	public void setFlyBehavior(FlyBehavior fb) {
 		flyBehavior = fb;
@@ -19,14 +29,14 @@ public abstract class Duck {
 	abstract void display();
 
 	public void performFly() {
-		flyBehavior.fly();
+		flyBehavior.fly(output);
 	}
 
 	public void performQuack() {
-		quackBehavior.quack();
+		quackBehavior.quack(output);
 	}
 
 	public void swim() {
-		System.out.println("All ducks float, even decoys!");
+		output.print("All ducks float, even decoys!");
 	}
 }

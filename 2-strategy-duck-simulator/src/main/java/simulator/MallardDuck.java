@@ -1,14 +1,18 @@
 package simulator;
 
-public class MallardDuck extends Duck {
+import output.Output;
 
-	public MallardDuck() {
+public class MallardDuck extends Duck {
+	Output output;
+
+	public MallardDuck(Output output) {
 		quackBehavior = new Quack();
 		flyBehavior = new FlyWithWings();
+		this.output = output;
 	}
 
 	public void display() {
-		System.out.println("I'm a real Mallard duck");
+		output.print("I'm a real Mallard duck");
 	}
 
 }

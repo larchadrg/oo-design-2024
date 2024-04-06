@@ -1,7 +1,9 @@
 package simulator;
 
+import output.Output;
+
 public class FlyNoWay implements FlyBehavior {
-	public void fly() {
-		System.out.println("I can't fly");
+	public void fly(Output output) {
+		output.print("I can't fly");
 	}
 }
