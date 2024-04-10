@@ -1,4 +1,10 @@
 package weapons;
 
-public class Weapon {
+import output.Output;
+
+public abstract class Weapon implements WeaponBehaviour{
+    Output output;
+    public Weapon(Output output){
+        this.output = output;
+    }
 }
