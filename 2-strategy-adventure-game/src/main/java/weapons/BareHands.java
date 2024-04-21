@@ -1,20 +1,20 @@
 package weapons;
 
-import output.Output;
-import output.Terminal;
+import characters.FightStyle;
+import output.ScreenLogger;
 
 public class BareHands extends Weapon implements WeaponBehaviour{
-    public BareHands(Output output){
-        super(output);
+    public BareHands(){
+        fightStyle = FightStyle.MELEE;
     }
 
     @Override
-    public void attack() {
-        output.print("you punched");
+    public String getName() {
+        return "Fist";
     }
 
     @Override
-    public void showWeapon() {
-        output.print("Uses his bare hands");
+    public int getDamage() {
+        return 10;
     }
 }

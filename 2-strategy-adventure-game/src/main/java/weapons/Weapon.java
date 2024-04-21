@@ -1,10 +1,13 @@
 package weapons;
 
+import characters.FightStyle;
 import output.Output;
 
 public abstract class Weapon implements WeaponBehaviour{
-    Output output;
-    public Weapon(Output output){
-        this.output = output;
+    FightStyle fightStyle;
+
+    @Override
+    public FightStyle getFightStyle() {
+        return fightStyle;
     }
 }

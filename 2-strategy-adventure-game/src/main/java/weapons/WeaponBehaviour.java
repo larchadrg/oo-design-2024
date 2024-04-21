@@ -1,6 +1,10 @@
 package weapons;
 
+import characters.FightStyle;
+
 public interface WeaponBehaviour {
-    public void attack();
-    public void showWeapon();
+    public String getName();
+    public FightStyle getFightStyle();
+
+    int getDamage();
 }

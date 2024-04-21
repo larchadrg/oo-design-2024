@@ -3,11 +3,9 @@ package characters;
 import output.Output;
 
 public class Mage extends GameCharacter {
-    public Mage(){
-        super();
-    }
-
-    public Mage(Output output){
-        super(output);
+    public Mage(int lifePoints, int speed){
+        super(lifePoints, speed);
+        fightStyle = FightStyle.MAGIC;
+        name = "Mage";
     }
 }

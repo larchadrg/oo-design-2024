@@ -1,20 +1,21 @@
 package weapons;
 
-import output.Output;
+import characters.FightStyle;
+import output.ScreenLogger;
 
 public class Bow extends Weapon implements WeaponBehaviour {
 
-    public Bow(Output output) {
-        super(output);
+    public Bow() {
+        fightStyle = FightStyle.RANGED;
     }
 
     @Override
-    public void attack() {
-        output.print("attacked with bow");
+    public String getName(){
+        return "Bow";
     }
 
     @Override
-    public void showWeapon() {
-        output.print("holding a bow");
+    public int getDamage() {
+        return 50;
     }
 }

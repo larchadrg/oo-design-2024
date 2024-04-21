@@ -9,3 +9,5 @@
  */
 
 rootProject.name = '3-observer-weather-station'
+include 'test'
+
