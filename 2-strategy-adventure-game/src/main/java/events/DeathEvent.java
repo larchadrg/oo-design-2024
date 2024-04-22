@@ -9,7 +9,7 @@ public class DeathEvent implements GameEvent{
     }
 
     @Override
-    public String createEventMessage() {
+    public String getMessage() {
         return c.getName() + " died.";
     }
 

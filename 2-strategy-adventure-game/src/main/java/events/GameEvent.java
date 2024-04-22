@@ -1,8 +1,6 @@
 package events;
 
-import characters.GameCharacter;
-
 public interface GameEvent {
-    public String createEventMessage();
+    public String getMessage();
     public void perform();
 }

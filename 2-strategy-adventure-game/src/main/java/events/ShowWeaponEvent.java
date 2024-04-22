@@ -9,7 +9,7 @@ public class ShowWeaponEvent implements GameEvent {
     }
 
     @Override
-    public String createEventMessage() {
+    public String getMessage() {
         return character.getName() + " uses " + character.getWeapon().getName();
     }
 

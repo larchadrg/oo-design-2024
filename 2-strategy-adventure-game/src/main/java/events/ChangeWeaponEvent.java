@@ -11,7 +11,7 @@ public class ChangeWeaponEvent implements GameEvent{
         weapon = w;
     }
     @Override
-    public String createEventMessage() {
+    public String getMessage() {
         return character.getName() + " is now using " + weapon.getName();
     }
 

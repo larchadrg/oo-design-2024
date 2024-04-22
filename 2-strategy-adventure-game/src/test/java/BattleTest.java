@@ -1,7 +1,6 @@
 import characters.Archer;
 import characters.GameCharacter;
 import characters.Mage;
-import game.Battle;
 import game.Game;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -25,7 +24,7 @@ public class BattleTest {
     }
 
     @Test
-    public void testBattleEqualHPDiffSpeed(){
+    public void testBattle(){
         game.performBattle(archer, mage);
         assertTrue(archer.isAlive());
         assertFalse(mage.isAlive());

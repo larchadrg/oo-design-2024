@@ -31,7 +31,7 @@ public class TestPrimeNumbers {
 
     @ParameterizedTest
     @MethodSource("primeNumberGenerators")
-    public void testGetPrimeUpTo10(PrimeNumberGenerator generator) {
+    public void testGetPrimeUpTo10(PrimeNumberGenerator generator) throws IOException {
         PrimeNumberSequence primeNumberSequence = new PrimeNumberSequence(generator);
         List<Integer> numbers = primeNumberSequence.primeNumberSequence(10);
         printPrimeNumbers.printPrimeNumbers(numbers);
