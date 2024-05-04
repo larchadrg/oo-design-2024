@@ -1,26 +1,27 @@
 package characters;
 
-import weapons.BareHands;
-import weapons.WeaponBehaviour;
+import weaponsAndGems.weapons.BareHands;
+import weaponsAndGems.Weapon;
 
 public abstract class GameCharacter{
-    WeaponBehaviour weaponBehaviour;
+    public Weapon weapon;
     int baseLifePoints;
     int currentLifePoints;
     int speed;
     FightStyle fightStyle;
-    String name;
+    public String name;
+
 
     public GameCharacter(int baseLifePoints, int speed){
         this.baseLifePoints = baseLifePoints;
         this.currentLifePoints = baseLifePoints;
         this.speed = speed;
-        this.weaponBehaviour = new BareHands();
+        this.weapon = new BareHands();
     }
 
-    public void setWeapon(WeaponBehaviour weapon){
+    public void setWeapon(Weapon weapon){
         if (weapon.getFightStyle() != fightStyle) throw new IllegalArgumentException("The character cant use this weapon");
-        weaponBehaviour = weapon;
+        this.weapon = weapon;
     }
 
     public int getCurrentLifePoints(){
@@ -39,15 +40,10 @@ public abstract class GameCharacter{
         if (currentLifePoints < 0) return false;
         if (speed < 0) return false;
         if (baseLifePoints < 0) return false;
-        if (currentLifePoints > baseLifePoints) return false;
-        return true;
+        return currentLifePoints <= baseLifePoints;
     }
-
-    public int getAttackDamage() {
-        return weaponBehaviour.getDamage();
-    }
-
-    public void receiveDamage(int damage) {
+    
+    private void receiveDamage(int damage) {
         if (damage < 0) throw new IllegalArgumentException("negative damage");
         if (damage > currentLifePoints) currentLifePoints = 0;
         else currentLifePoints = currentLifePoints - damage;
@@ -55,20 +51,22 @@ public abstract class GameCharacter{
 
     public String getName(){
         return name;
-    };
+    }
 
-    public void attack(GameCharacter character){
+    public int attack(GameCharacter character){
+        if(!character.isAlive()) throw new IllegalStateException(character.name + " is dead.");
         int damage = calculateEffectiveDamageAgainst(character);
         character.receiveDamage(damage);
+        return damage;
     }
 
-    public int calculateEffectiveDamageAgainst(GameCharacter character){
-        int damage = weaponBehaviour.getDamage();
-        if (damage >= character.currentLifePoints) return character.currentLifePoints;
-        else return damage;
+    private int calculateEffectiveDamageAgainst(GameCharacter character){
+        int damage = weapon.getDamage();
+        return Math.min(damage, character.currentLifePoints);
     }
 
-    public WeaponBehaviour getWeapon(){
-        return weaponBehaviour;
+    public Weapon getWeapon(){
+        return weapon;
     }
+
 }

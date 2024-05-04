@@ -1,9 +1,9 @@
-package weapons;
+package weaponsAndGems.weapons;
 
 import characters.FightStyle;
-import output.ScreenLogger;
+import weaponsAndGems.Weapon;
 
-public class DarkMagicBook  extends Weapon implements WeaponBehaviour{
+public class DarkMagicBook extends ConcreteWeapon {
     @Override
     public String getName() {
         return "Dark Magic Book";
@@ -17,5 +17,10 @@ public class DarkMagicBook  extends Weapon implements WeaponBehaviour{
     @Override
     public int getDamage() {
         return 80;
+    }
+
+    @Override
+    public int maximumNumberOfGemsAllowed() {
+        return 1;
     }
 }

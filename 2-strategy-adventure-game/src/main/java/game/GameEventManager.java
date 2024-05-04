@@ -1,6 +1,6 @@
 package game;
 
-import events.GameEvent;
+import characters.GameCharacter;
 import output.Observer;
 
 import java.util.*;
@@ -11,6 +11,12 @@ public class GameEventManager implements Subject {
     public GameEventManager(){
         observers = new ArrayList<>();
     }
+
+    public GameEventManager(Observer[] observers){
+        this.observers = new ArrayList<>();
+        this.observers.addAll(Arrays.asList(observers));
+    }
+
     @Override
     public void registerObserver(Observer o) {
         observers.add(o);
@@ -21,10 +27,24 @@ public class GameEventManager implements Subject {
         observers.remove(o);
     }
 
-    @Override
-    public void notifyObservers(GameEvent event) {
+
+    public void notifyObserversAttack(int damage, GameCharacter attacker, GameCharacter receiver){
         for(Observer observer: observers){
-            observer.update(event);
+            observer.updateAttack(damage, attacker, receiver);
+        }
+    }
+
+    @Override
+    public void notifyObserversKill(GameCharacter killer, GameCharacter victim) {
+        for(Observer observer: observers){
+            observer.updateKill(killer, victim);
+        }
+    }
+
+    @Override
+    public void notifyObserversWeapon(GameCharacter character) {
+        for(Observer observer: observers){
+            observer.updateWeapon(character);
         }
     }
 }

@@ -1,0 +1,6 @@
+Archer is now using Bow
+Mage is now using Dark Magic Book
+Archer attacked Mage and dealt 50 points of damage!
+Mage attacked Archer and dealt 80 points of damage!
+Archer attacked Mage and dealt 50 points of damage!
+Archer died.

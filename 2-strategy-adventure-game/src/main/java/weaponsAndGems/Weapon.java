@@ -1,10 +1,12 @@
-package weapons;
+package weaponsAndGems;
 
 import characters.FightStyle;
 
-public interface WeaponBehaviour {
+public interface Weapon {
     public String getName();
     public FightStyle getFightStyle();
 
     int getDamage();
+    int maximumNumberOfGemsAllowed();
+    int amountGemsInWeapon();
 }

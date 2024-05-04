@@ -1,7 +1,9 @@
 package output;
 
-import events.GameEvent;
+import characters.GameCharacter;
 
 public interface Observer {
-    public void update(GameEvent event);
+    void updateAttack(int damage, GameCharacter attacker, GameCharacter receiver);
+    void updateKill(GameCharacter killer, GameCharacter killed);
+    void updateWeapon(GameCharacter character);
 }

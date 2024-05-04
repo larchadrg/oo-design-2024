@@ -4,8 +4,8 @@ import characters.Mage;
 import game.Game;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import weapons.Bow;
-import weapons.DarkMagicBook;
+import weaponsAndGems.weapons.Bow;
+import weaponsAndGems.weapons.DarkMagicBook;
 
 import static org.junit.jupiter.api.Assertions.*;
 

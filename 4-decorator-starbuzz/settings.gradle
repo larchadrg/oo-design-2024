@@ -9,3 +9,5 @@
  */
 
 rootProject.name = '4-decorator-starbuzz'
+include 'test'
+
